@@ -1,5 +1,5 @@
 import React from "react";
-//import AuthenticationService from '../../services/AuthenticationService'
+import AuthenticationService from '../../services/AuthenticationService'
 
 class LoginComponent extends React.Component {
   constructor(props) {
@@ -19,9 +19,11 @@ class LoginComponent extends React.Component {
 
   }
 
-  // loginSubmit() {
-  //   AuthenticationService.login()
-  // }
+  loginSubmit() {
+    AuthenticationService.loginUser(this.state.email, this.state.password)
+      .then((response) => (AuthenticationService.successfulJWTLogin(response.data.jwt)))
+  }
+
 
   render() {
     return (
@@ -35,7 +37,7 @@ class LoginComponent extends React.Component {
           <input type="text" name="email" defaultValue={this.state.email} onChange={this.handleInputChange} />
           Password: <input type="password" name="password" defaultValue={this.state.password} onChange={this.handleInputChange} />
         </div>
-        <button className="button" onClick={() => alert(this.state.email + this.state.password)}>Login</button>
+        <button className="button" onClick={() => this.loginSubmit()}>Login</button>
       </div>
     );
   }
