@@ -24,6 +24,10 @@
   color: white;
 }
 
+.button {
+  background-color: rgba(243, 43, 250, 0.534);
+}
+
 .App-link {
   color: #61dafb;
 }
