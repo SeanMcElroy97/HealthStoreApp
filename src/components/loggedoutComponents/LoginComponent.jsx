@@ -21,7 +21,8 @@ class LoginComponent extends React.Component {
 
   loginSubmit() {
     AuthenticationService.loginUser(this.state.email, this.state.password)
-      .then((response) => (AuthenticationService.successfulJWTLogin(response.data.jwt)))
+      .then((response) => (AuthenticationService.successfulJWTLogin(response.data.jwt, this.state.email)))
+      .catch(alert('incorrect details'))
   }
 
 
