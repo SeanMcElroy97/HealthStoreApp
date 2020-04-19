@@ -6,6 +6,7 @@ import HomePage from "./customerComponents/HomePage";
 import AdminHomePage from "./adminComponents/AdminHomePage"
 import AuthenticatedRoute from "../services/AuthenticatedRoute"
 import AdminProductsComponent from "./adminComponents/AdminProductsComponent"
+import AdminProductComponent from "./adminComponents/AdminProductComponent"
 
 class HealthApp extends React.Component {
   render() {
@@ -18,7 +19,8 @@ class HealthApp extends React.Component {
             <Route path="/signup" component={SignUpComponent} />
             <AuthenticatedRoute path="/homepage" component={HomePage} />
             <AuthenticatedRoute path="/adminhomepage" component={AdminHomePage} />
-            <AuthenticatedRoute path="/adminproducts" component={AdminProductsComponent} />
+            <AuthenticatedRoute path="/adminproducts/:id" component={AdminProductComponent} />
+            <AuthenticatedRoute path="/adminproducts" exact component={AdminProductsComponent} />
           </Switch>
         </Router>
       </div>

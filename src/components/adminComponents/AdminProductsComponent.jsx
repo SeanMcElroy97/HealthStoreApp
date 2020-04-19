@@ -1,5 +1,4 @@
 import React from 'react'
-import Modal from 'react-modal'
 import ProductService from "../../services/ProductService"
 import AuthenticationService from "../../services/AuthenticationService"
 
@@ -34,8 +33,8 @@ export default class AdminProductsComponent extends React.Component {
         return (
             <div>
                 <Container>
-                    <div align="center" margin>
-                        <Button variant="contained" className='add_btn' color="primary">Add new Stock</Button>
+                    <div align="center">
+                        <Button variant="contained" className='add_btn' color="primary" onClick={() => this.props.history.push('/adminproducts/-1')}>Add new Stock</Button>
                     </div>
                     <TableContainer >
                         <Table>
@@ -64,8 +63,6 @@ export default class AdminProductsComponent extends React.Component {
                         </Table>
 
                     </TableContainer >
-
-                    <Modal></Modal>
                 </Container>
             </div>
         );
