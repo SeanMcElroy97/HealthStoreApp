@@ -21,8 +21,17 @@ class LoginComponent extends React.Component {
 
   loginSubmit() {
     AuthenticationService.loginUser(this.state.email, this.state.password)
-      .then((response) => (AuthenticationService.successfulJWTLogin(response.data.jwt, this.state.email)))
-      .catch(alert('incorrect details'))
+      .then((response) => {
+        //console.log(response)
+        AuthenticationService.successfulJWTLogin(response.data.jwt, this.state.email)
+        if (response.data.role === "[ROLE_CUSTOMER]") {
+          this.props.history.push('/homepage')
+        }
+        if (response.data.role === "[ROLE_ADMIN]") {
+          this.props.history.push('/adminhomepage')
+        }
+      })
+      .catch(() => alert('incorrect details'))
   }
 
 

@@ -28,6 +28,10 @@
   background-color: rgba(243, 43, 250, 0.534);
 }
 
+.add_btn{
+  align-self: center;
+}
+
 .App-link {
   color: #61dafb;
 }
