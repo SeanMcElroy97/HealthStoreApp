@@ -25,10 +25,34 @@ class ProductService {
     }
 
 
+    //Admin
     fetchAllStock() {
         return Axios.get(URL + '/admin/all')
     }
 
+    addProductToStock(title, manufacturer, price, category, productImageLink, qtyHeld) {
+
+        // console.log(title)
+        // console.log(manufacturer)
+        // console.log(price)
+        // console.log(category)
+        // console.log(productImageLink)
+        // console.log(qtyHeld)
+        return Axios.post(URL + '/admin/add', { product: { title, manufacturer, price, category, productImageLink }, qtyHeld })
+
+    }
+
+    updateProductStock(stockArray) {
+        return Axios.post(URL + '/admin/updateStock', stockArray)
+    }
+
+
+
+    //Customer
+
+    fetchAllProductsAvailable() {
+        return Axios.get(URL + '/customer/viewALLProducts')
+    }
 
 }
 

@@ -15,6 +15,7 @@ class AdminHomePage extends React.Component {
             <div>ADMIN HOME PAGE</div>
             <button onClick={() => this.logOut()}>Logout</button>
             <button onClick={() => this.props.history.push('/adminproducts')}>Products</button>
+            <button onClick={() => this.props.history.push('/adminCustomers')}>Customers</button>
         </div>
 
     }

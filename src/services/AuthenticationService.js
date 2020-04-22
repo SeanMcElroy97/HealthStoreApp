@@ -90,6 +90,35 @@ class AuthenticationService {
     }
 
 
+    fetchAllCustomers() {
+        return Axios.get(URL + '/admin/getAllCustomers')
+    }
+
+    findCustomerByID() {
+        let email = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
+        return Axios.get(URL + `/customer/customerById/${email}`)
+    }
+
+    addItemToCart(product, quantity, customer) {
+
+        console.log("Product " + product)
+        console.log("quantity " + quantity)
+        console.log("customer " + customer)
+
+        let email = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
+
+
+        return Axios.post(URL + `/customer/addToBasket/${email}`, { product, quantity })
+
+    }
+
+
+    fetchCustomerShoppingBasket() {
+        let email = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
+        return Axios.get(URL + `/customer/customerShoppingCart/${email}`)
+    }
+
+
 }
 
 export default new AuthenticationService();

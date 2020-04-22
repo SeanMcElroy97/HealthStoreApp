@@ -21,6 +21,7 @@ class HomePage extends React.Component {
             <div>IN HOME PAGE</div>
             <button onClick={() => this.logOut()}>Logout</button>
             <button onClick={() => this.customerMethod2()}>Customer method 2</button>
+            <button onClick={() => this.props.history.push('/customerproducts')}> View products</button>
         </div>
 
     }
